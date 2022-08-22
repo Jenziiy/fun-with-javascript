@@ -2,7 +2,7 @@ function Book(title, author, numberOfPages, readBook) {
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
-  this.readBook = readBook;
+  this.readBook = Boolean(readBook);
   if (readBook == true) {
     readBook = 'already read';
   } else {
