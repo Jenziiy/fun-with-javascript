@@ -1,6 +1,9 @@
 let bookInfo;
 let myLibrary = [];
 
+// const divBook = document.querySelector('.book');
+const divBookStore = document.querySelector('.bookstore');
+
 function Book(title, author, numberOfPages, readBook) {
   this.title = title;
   this.author = author;
@@ -13,7 +16,7 @@ function Book(title, author, numberOfPages, readBook) {
   }
 
   this.info = function() {
-    return `${title} by ${author}, ${numberOfPages} pages, ${readBook}`;
+    return `${title} by ${author}, ${numberOfPages} pages, ${readBook} `;
   }
 }
 
@@ -30,6 +33,16 @@ function removeBookFromLibrary(book) {
   }
 }
 
+function displayBookStore(){
+  myLibrary.forEach((book) => {  
+    const divBook = document.createElement('div')
+    divBook.classList.add('book');
+    divBookStore.appendChild(divBook);
+    const para = document.createElement('p');
+    para.appendChild(document.createTextNode(book.info()));
+    divBook.appendChild(para);
+  })}
+
 const book1 = new Book('De verenigde staten in de 20e eeuw', 'Maarten van Rossum', '509', true);
 addBookToLibrary(book1);
 
@@ -41,4 +54,5 @@ addBookToLibrary(book3);
 console.log(myLibrary);
 removeBookFromLibrary(book1);
 console.log(myLibrary);
+displayBookStore();
 
