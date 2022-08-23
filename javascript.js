@@ -21,14 +21,14 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-// function removeBookFromLibrary(book) {
-//   for ( bookItem in myLibrary ) {
-//     if ( bookItem.numberOfPages === this.book ) {
-//       myLibrary = myLibrary.splice(bookItem, 1);
-//       console.log(myLibrary); 
-//     }
-//   }
-// }
+function removeBookFromLibrary(book) {
+  for ( bookItem of myLibrary ) {
+    if ( bookItem == book ) {
+      myLibrary.splice(bookItem, 1);
+      console.log(myLibrary); 
+    }
+  }
+}
 
 const book1 = new Book('De verenigde staten in de 20e eeuw', 'Maarten van Rossum', '509', true);
 addBookToLibrary(book1);
@@ -38,5 +38,7 @@ addBookToLibrary(book2);
 
 const book3 = new Book('De antwoorden op de Grote Vragen', 'Stephen Hawking', '264', false);
 addBookToLibrary(book3);
+console.log(myLibrary);
+removeBookFromLibrary(book1);
 console.log(myLibrary);
 
