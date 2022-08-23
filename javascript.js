@@ -52,7 +52,7 @@ addBookToLibrary(book2);
 const book3 = new Book('De antwoorden op de Grote Vragen', 'Stephen Hawking', '264', false);
 addBookToLibrary(book3);
 console.log(myLibrary);
-removeBookFromLibrary(book1);
+// removeBookFromLibrary(book1);
 console.log(myLibrary);
 displayBookStore();
 

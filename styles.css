@@ -1,0 +1,13 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+.bookstore{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.book {
+  border: solid pink;
+  height: 150px;
+  width: 350px;
+}
