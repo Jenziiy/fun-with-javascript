@@ -1,13 +1,29 @@
 .wrapper {
   display: flex;
   flex-grow: 1;
+  justify-content: center;
 }
 .bookstore{
   display: grid;
   grid-template-columns: 1fr;
+  gap: 20px;
 }
 .book {
+  display: flex;
   border: solid pink;
+  box-shadow: 3px 3px 3px rgb(207, 195, 195);
+
   height: 150px;
   width: 350px;
+  flex-flow: column;
+  padding-left: 10px;
+}
+button {
+  width: 80px;
+  height: 40px;
+  border-radius: 10px;
+  margin: 20px 15px 0 0;
+  align-self: flex-end;
+background-color: hotpink;
+box-shadow: 3px 3px 3px rgb(206, 195, 195);
 }

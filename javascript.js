@@ -41,6 +41,7 @@ function displayBookStore(){
     const para = document.createElement('p');
     para.appendChild(document.createTextNode(book.info()));
     divBook.appendChild(para);
+    divBook.appendChild(document.createElement('button'));
   })}
 
 const book1 = new Book('De verenigde staten in de 20e eeuw', 'Maarten van Rossum', '509', true);
