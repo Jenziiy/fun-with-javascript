@@ -1,8 +1,12 @@
 let bookInfo;
 let myLibrary = [];
-
+let buttons;
 // const divBook = document.querySelector('.book');
 const divBookStore = document.querySelector('.bookstore');
+addEventListener('DOMContentLoaded', removeBookFromLibrary);
+
+
+
 
 
 function Book(title, author, numberOfPages, readBook) {
@@ -26,6 +30,10 @@ function addBookToLibrary(book) {
 }
 
 function removeBookFromLibrary(book) {
+  const buttons =  document.querySelectorAll('.remove'); 
+  buttons.forEach(button => {button.addEventListener('click', (e) => {
+    console.log(e.target);
+  })})
   for ( bookItem of myLibrary ) {
     if ( bookItem == book ) {
       myLibrary.splice(bookItem, 1);
@@ -37,7 +45,7 @@ function removeBookFromLibrary(book) {
 function displayBookStore(){
   myLibrary.forEach((book) => {  
     const button = document.createElement('button');
-    button.classList.add(`remove-${myLibrary.indexOf(book)}`);
+    button.classList.add(`remove`,`${myLibrary.indexOf(book)}`);
     const divBook = document.createElement('div')
     divBook.classList.add('book');
     divBookStore.appendChild(divBook);
@@ -45,6 +53,7 @@ function displayBookStore(){
     para.appendChild(document.createTextNode(book.info()));
     divBook.appendChild(para);
     divBook.appendChild(button);
+    return buttons;
   })}
 
 const book1 = new Book('De verenigde staten in de 20e eeuw', 'Maarten van Rossum', '509', true);
@@ -56,7 +65,7 @@ addBookToLibrary(book2);
 const book3 = new Book('De antwoorden op de Grote Vragen', 'Stephen Hawking', '264', false);
 addBookToLibrary(book3);
 console.log(myLibrary);
-// removeBookFromLibrary(book1);
 console.log(myLibrary);
 displayBookStore();
+
 
