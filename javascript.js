@@ -29,25 +29,30 @@ function addBookToLibrary(book) {
   myLibrary.push(book);
 }
 
-function removeBookFromLibrary(book) {
+function removeBookFromLibrary() {
   const buttons =  document.querySelectorAll('.remove'); 
   buttons.forEach(button => {button.addEventListener('click', (e) => {
-    console.log(e.target);
-  })})
-  for ( bookItem of myLibrary ) {
-    if ( bookItem == book ) {
-      myLibrary.splice(bookItem, 1);
-      console.log(myLibrary); 
+    let removeBook = button.getAttribute('data');
+    for ( bookItem of myLibrary ) {
+      if ( myLibrary.indexOf(bookItem) == removeBook ) {
+        myLibrary.splice(bookItem, 1);
+        let removeBookItem = document.getElementById(removeBook);
+        removeBookItem.remove();
+
+      }
     }
-  }
+
+  })})
+  
 }
 
 function displayBookStore(){
   myLibrary.forEach((book) => {  
     const button = document.createElement('button');
-    button.classList.add(`remove`,`${myLibrary.indexOf(book)}`);
+    button.classList.add(`remove`); button.setAttribute('data',`${myLibrary.indexOf(book)}`);
     const divBook = document.createElement('div')
     divBook.classList.add('book');
+    divBook.setAttribute('id',`${myLibrary.indexOf(book)}`);
     divBookStore.appendChild(divBook);
     const para = document.createElement('p');
     para.appendChild(document.createTextNode(book.info()));
