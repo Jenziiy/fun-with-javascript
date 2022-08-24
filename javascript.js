@@ -9,8 +9,9 @@ function idCreator() { if (myLibrary == '') { return id = 0} else {return id = m
 
 
 
+
 function Book(title, author, numberOfPages, readBook) {
-  this.id = idCreator();
+  //this.id = idCreator();
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
