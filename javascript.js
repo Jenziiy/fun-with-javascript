@@ -4,12 +4,13 @@ let buttons;
 // const divBook = document.querySelector('.book');
 const divBookStore = document.querySelector('.bookstore');
 addEventListener('DOMContentLoaded', removeBookFromLibrary);
-
+function idCreator() { if (myLibrary == '') { return id = 0} else {return id = myLibrary.length} };
 
 
 
 
 function Book(title, author, numberOfPages, readBook) {
+  this.id = idCreator();
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
@@ -69,7 +70,6 @@ addBookToLibrary(book2);
 
 const book3 = new Book('De antwoorden op de Grote Vragen', 'Stephen Hawking', '264', false);
 addBookToLibrary(book3);
-console.log(myLibrary);
 console.log(myLibrary);
 displayBookStore();
 
