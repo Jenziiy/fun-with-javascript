@@ -3,22 +3,18 @@ html {
   background-color: lavender;
   color: rgb(77, 75, 75);
 }
-
 body {
   margin: 0;
   padding: 0;
   position: relative;
 }
-#add-book {
-  position: absolute;
-}
-
 body h1, body p {
   text-align: center;
 }
 .grid{
   min-height: 100vh;
   display: grid;
+  column-gap: 30px;
   grid-template-areas: "header header header"
                         "nav main aside"
                         "footer footer footer";
@@ -26,24 +22,21 @@ body h1, body p {
   grid-template-rows: 1fr 3fr 1fr;
   grid-template-columns: 1fr 3fr 1fr;
 }
-
 header {
   grid-area: header;
 }
-
 nav {
   grid-area: nav;
 }
-
 main {
   grid-area: main;
   
 }
-
 aside {
+  display: flex;
   grid-area: aside;
+  align-items: flex-end;
 }
-
 footer {
   display: flex;
   grid-area: footer;
@@ -53,6 +46,7 @@ footer {
   background-color: antiquewhite;
   border: solid 6px rgb(207, 195, 195, 0.5);
 }
+
 .wrapper {
   display: flex;
   flex-grow: 1;
@@ -74,7 +68,6 @@ footer {
   grid-template-rows: 90% 10%;
   padding-left: 10px;
 }
-
 .book p {
   padding: 5px;
 }
@@ -85,24 +78,48 @@ button {
   border-radius: 10px;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
-
-.remove {
+button.remove {
   width: 80px;
   height: 40px;
   align-self: flex-end;
   background-color: rgb(184, 142, 163);
 }
-
-.remove:after {
+button.remove:after {
   content: "Remove";
-  letter-spacing: 2px;}
-
-.add-book {
+  letter-spacing: 2px;
+}
+button.add-book {
   height: 100px;
-  width: 160px;
+  padding: 0px 15px 0px 15px;
+  width: 200px;
   background-color: rgb(156, 190, 156);
   letter-spacing: 4px;
-
+  transition: all 0.5s;
+}
+button span {
+  position: relative;
+  display: inline-block;
+  transition: 0.5s;
+}
+button span::after {
+  content: '\1F448';
+  font-size: 40px;
+  position: absolute;
+  opacity: 0;
+  top: -20px;
+  right: -70px;
+  transition: 0.5s;
+}
+button:hover span {
+  padding-right: 55px;
+}
+button:hover span:after {
+  opacity: 1;
+  right: 0;
 }
 
+form#add-book {
+  position: absolute;
+}
