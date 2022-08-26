@@ -37,7 +37,7 @@ nav {
   background-color: antiquewhite;
   display: flex;
   justify-content: space-around;
-  padding-left: 15vh;
+  padding-left: 55vh;
 
 }
 ul {
@@ -48,6 +48,10 @@ ul {
 }
 li {
   flex-flow: row nowrap;
+  font-weight: 500;
+}
+a {
+  text-decoration: none;
 }
 main {
   grid-area: main;
@@ -65,7 +69,10 @@ footer {
   margin: 4vh 0 0 0;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: rgb(250, 235, 215, 0.6);
+  color: rgb(147, 142, 142);
+  font-weight: 400;
+  letter-spacing: 1.5px;
 }
 
 .wrapper {
@@ -196,6 +203,23 @@ span.submitbutton {
   width: 250px;
   justify-self: flex-end;
   align-self: flex-end;
+  cursor: pointer;
+  position: relative;
+}
+#submit-button:active {
+  outline: none;
+  background-color: rgb(234, 234, 246);
+  border: solid lavender 3px;
+  transition: 0.5s ease-in-out;
+  background: linear-gradient(45deg, #FF0000, #FFF700, #FF7000, #FF00FE, #3FF4EB, #9E00FF, #00BEFF, #FF00DD, #FF0000);
+  position: absolute;
+    width: 254px;
+    height: 84px;
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+}
+#submit-button:hover {
+  transform: scale(1.05); 
 }
 
 span.child {
