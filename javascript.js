@@ -7,11 +7,8 @@ addEventListener('DOMContentLoaded', removeBookFromLibrary);
 function idCreator() { if (myLibrary == '') { return id = 0} else {return id = myLibrary.length} };
 
 
-
-
-
 function Book(title, author, numberOfPages, readBook) {
-  //this.id = idCreator();
+  this.id = idCreator();
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
@@ -36,10 +33,11 @@ function removeBookFromLibrary() {
   buttons.forEach(button => {button.addEventListener('click', (e) => {
     let removeBook = button.getAttribute('data');
     for ( bookItem of myLibrary ) {
-      if ( myLibrary.indexOf(bookItem) == removeBook ) {
-        myLibrary.splice(bookItem, 1);
+      if ( bookItem.id == button.getAttribute('data') ) {
+        myLibrary.splice(bookItem.id, 1);
         let removeBookItem = document.getElementById(removeBook);
         removeBookItem.remove();
+        console.log(myLibrary);
 
       }
     }
