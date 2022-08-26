@@ -211,7 +211,7 @@ span.submitbutton {
   background-color: rgb(234, 234, 246);
   border: solid lavender 3px;
   transition: 0.5s ease-in-out;
-  background: linear-gradient(45deg, #FF0000, #FFF700, #FF7000, #FF00FE, #3FF4EB, #9E00FF, #00BEFF, #FF00DD, #FF0000);
+  background: linear-gradient(45deg, #FF00FE, #3FF4EB, #9E00FF, #00BEFF, #FF00DD, #FF0000);
   position: absolute;
     width: 254px;
     height: 84px;
