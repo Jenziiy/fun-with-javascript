@@ -4,6 +4,13 @@ let buttons;
 // const divBook = document.querySelector('.book');
 const divBookStore = document.querySelector('.bookstore');
 addEventListener('DOMContentLoaded', removeBookFromLibrary);
+const submit = document.querySelector('#submit-button');
+submit.addEventListener('click', () => {document.querySelector('#add-book').style.display='none';
+document.querySelector('.grid').classList.toggle('greyedout')});
+const addBookButton = document.querySelector('.add-book');
+addBookButton.addEventListener('click', () => {document.querySelector('#add-book').style.display='flex'; 
+document.querySelector('.grid').classList.add('greyedout')});
+
 function idCreator() { if (myLibrary == '') { return id = 0} else {return id = myLibrary.length} };
 
 
@@ -73,5 +80,7 @@ const book3 = new Book('De antwoorden op de Grote Vragen', 'Stephen Hawking', '2
 addBookToLibrary(book3);
 console.log(myLibrary);
 displayBookStore();
+
+
 
 

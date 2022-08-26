@@ -35,14 +35,29 @@
       A footer
     </footer>
     </div>
-    <form id="add-book" action="index.html" method="post">
+    <form id="add-book" action="#" target="_self">
       <h2>Add a book form</h2>
       <p>Fill out the details below to add a new book.</p>
-      <label for="fname">First name:</label><br>
-      <input type="text" id="fname" name="fname" value="John"><br>
-      <label for="lname">Last name:</label><br>
-      <input type="text" id="lname" name="lname" value="Doe"><br><br>
-      <input type="submit" value="Submit">
+      <fieldset >
+        <legend>Book info</legend>
+        <span class="child">
+          <label for="author">Author:</label>
+          <input class="txt" type="text" id="author" name="author" value="Roald Dahl">
+        </span>
+        <span class="child">
+          <label for="title">Title:</label>
+          <input class="txt" type="text" id="title" name="Title" value="Matilda">
+        </span>
+        <span class="child">
+          <label for="pages">Number of pages:</label>
+          <input class="txt" type="number" id="pagesnumber" name="pagesnumber" value="150" >
+        </span>
+        <span class="child">
+          <label for="hasread">Has been read:</label>
+          <input type="checkbox" id="hasread" name="hasread" checked>
+        </span>
+      </fieldset>
+      <span class="submitbutton"><input id="submit-button" type="submit" value="Submit"></span>
     </form>
   </body>
 </html>
