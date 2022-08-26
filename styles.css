@@ -4,8 +4,54 @@ html {
   color: rgb(77, 75, 75);
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+#add-book {
+  position: absolute;
+}
+
 body h1, body p {
   text-align: center;
+}
+.grid{
+  min-height: 100vh;
+  display: grid;
+  grid-template-areas: "header header header"
+                        "nav main aside"
+                        "footer footer footer";
+
+  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: nav;
+}
+
+main {
+  grid-area: main;
+  
+}
+
+aside {
+  grid-area: aside;
+}
+
+footer {
+  display: flex;
+  grid-area: footer;
+  margin: 4vh 0 0 0;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  border: solid 6px rgb(207, 195, 195, 0.5);
 }
 .wrapper {
   display: flex;
@@ -19,29 +65,44 @@ body h1, body p {
 }
 .book {
   background-color: wheat;
-  display: flex;
+  display: grid;
   border: solid rgb(215, 202, 205);
   box-shadow: 3px 3px 3px rgb(207, 195, 195);
-
   height: 150px;
   width: 350px;
-  flex-flow: column;
+  grid-template-columns: 73% 27%;
+  grid-template-rows: 90% 10%;
   padding-left: 10px;
 }
+
+.book p {
+  padding: 5px;
+}
+
 button {
-  width: 80px;
-  height: 40px;
-  border-radius: 10px;
-  margin: 20px 15px 0 0;
-  align-self: flex-end;
-  background-color: rgb(184, 142, 163);
   box-shadow: 3px 3px 3px rgb(206, 195, 195);
   border: solid white 1px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+.remove {
+  width: 80px;
+  height: 40px;
+  align-self: flex-end;
+  background-color: rgb(184, 142, 163);
 }
 
 .remove:after {
   content: "Remove";
-  color: white;
-  font-weight: 700;
   letter-spacing: 2px;}
+
+.add-book {
+  height: 100px;
+  width: 160px;
+  background-color: rgb(156, 190, 156);
+  letter-spacing: 4px;
+
+}
 

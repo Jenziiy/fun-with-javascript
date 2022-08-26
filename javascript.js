@@ -22,6 +22,9 @@ function Book(title, author, numberOfPages, readBook) {
   this.info = function() {
     return `${title} by ${author}, ${numberOfPages} pages, ${readBook} `;
   }
+  this.inventoryGenerator = function() {
+    return `Book title: ${title} Author: ${author}, Number of pages: ${numberOfPages} Read book: ${Boolean(readBook)} `;
+  }
 }
 
 function addBookToLibrary(book) {
