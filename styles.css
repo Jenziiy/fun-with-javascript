@@ -147,9 +147,10 @@ form#add-book {
   width: 550px;
   transform: translate(-50%, -50%);
   background: floralwhite;
-  border:rgb(184, 142, 163) solid;
+  border:rgb(184, 142, 163) solid 10px;
   padding: 30px;
   margin-bottom: 0%;
+  border-radius: 10px;
 }
 
 form#add-book h2, form#add-book p {
@@ -172,6 +173,7 @@ span.submitbutton {
   background-color: lavender;
   border: none;
   border-radius: 10px;
+  margin-top: 30px;
   height: 80px;
   width: 250px;
   justify-self: flex-end;
