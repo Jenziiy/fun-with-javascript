@@ -27,3 +27,8 @@ button {
 background-color: hotpink;
 box-shadow: 3px 3px 3px rgb(206, 195, 195);
 }
+
+button:after {
+  content: "Delete book"
+}
+
