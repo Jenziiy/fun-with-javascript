@@ -1,6 +1,7 @@
 let bookInfo;
 let myLibrary = [];
 let buttons;
+
 // const divBook = document.querySelector('.book');
 const divBookStore = document.querySelector('.bookstore');
 addEventListener('DOMContentLoaded', removeBookFromLibrary);
@@ -19,7 +20,9 @@ submit.addEventListener('click', () => {const form = document.forms[0];
   const book4 = new Book(selectedAuthor, selectedTitle, selectedPages, selectedHasRead);
   addBookToLibrary(book4);
   displayBook();
-// displayBookStore()
+  const removeButtons =  document.querySelectorAll('.remove'); 
+removeButtons.forEach(button => {button.addEventListener('click', removeBookFromLibrary)});
+  addEventListener('DOMContentLoaded', removeBookFromLibrary);
 });
 const addBookButton = document.querySelector('.add-book');
 addBookButton.addEventListener('click', () => {document.querySelector('#add-book').style.display='flex'; 
