@@ -36,10 +36,9 @@ function removeBookFromLibrary() {
       if ( bookItem.id == button.getAttribute('data') ) {
         myLibrary.splice(bookItem.id, 1);
         let removeBookItem = document.getElementById(removeBook);
-        removeBookItem.remove();
+        removeBookItem.remove();}
+        else if ( myLibrary.length == 1) { document.querySelector('.book').remove();}
         console.log(myLibrary);
-
-      }
     }
 
   })})
