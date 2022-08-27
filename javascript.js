@@ -22,7 +22,7 @@ function Book(title, author, numberOfPages, readBook) {
   }
 }
 function getBooks() { 
-  return books = document.querySelectorAll('.book')
+  return books = document.querySelectorAll('.remove')
 }
 function generateBookID() {
    if (myLibraryShadow == '') { return id = 0} else {return id = myLibraryShadow.length} 
@@ -52,7 +52,7 @@ function displayBookStore(){
     divBook.appendChild(para);
     divBook.appendChild(button);
     getBooks();
-    books.forEach(b => b.addEventListener('click', () => removeBookFromLibrary(b.id)));})
+    books.forEach(b => b.addEventListener('click', () => removeBookFromLibrary(b.parentElement.id)));})
 }
 function addBook() { const form = document.forms[0];
   const selectAuthor = form.querySelector('input[name="author"]');
