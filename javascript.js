@@ -5,31 +5,6 @@ const divBookStore = document.querySelector('.bookstore');
 const addBookButton = document.querySelector('.add-book');
 const submit = document.querySelector('#submit-button');
 
-// Click event "add book" triggers pop-up with form for user to input details. 
-addBookButton.addEventListener('click', () => {document.querySelector('#add-book').style.display='flex'; 
-document.querySelector('.grid').classList.add('greyedout')}
-);
-// Click event "submit" closes pop-up and returns to main library.
-submit.addEventListener('click', () => {document.querySelector('#add-book').style.display='none';
-document.querySelector('.grid').classList.toggle('greyedout');}
-);
-// On submit we send the book details to the library.
-submit.addEventListener('click', () => {const form = document.forms[0];
-  const selectAuthor = form.querySelector('input[name="author"]');
-  let selectedAuthor = selectAuthor.value;
-  const selectTitle = form.querySelector('input[name="Title"]');
-  let selectedTitle = selectTitle.value;
-  const selectPages = form.querySelector('input[name="pagesnumber"]');
-  let selectedPages = selectPages.value;
-  const selectHasRead = form.querySelector('input[name="hasread"]');
-  let selectedHasRead= selectHasRead.value;
-  const book4 = new Book(selectedAuthor, selectedTitle, selectedPages, selectedHasRead);
-  addBookToLibrary(book4);
-  const books = document.querySelectorAll('.book');
-  books.forEach(book => book.remove());
-
-  displayBookStore();
-});
 
 function getBooks() { 
   return books = document.querySelectorAll('.book')
@@ -95,4 +70,31 @@ function loadInitialLibrary() {
   displayBookStore();
 }
 
+// Click event "add book" triggers pop-up with form for user to input details. 
+addBookButton.addEventListener('click', () => {document.querySelector('#add-book').style.display='flex'; 
+document.querySelector('.grid').classList.add('greyedout')}
+);
+// Click event "submit" closes pop-up and returns to main library.
+submit.addEventListener('click', () => {document.querySelector('#add-book').style.display='none';
+document.querySelector('.grid').classList.toggle('greyedout');}
+);
+// On submit we send the book details to the library.
+submit.addEventListener('click', () => {const form = document.forms[0];
+  const selectAuthor = form.querySelector('input[name="author"]');
+  let selectedAuthor = selectAuthor.value;
+  const selectTitle = form.querySelector('input[name="Title"]');
+  let selectedTitle = selectTitle.value;
+  const selectPages = form.querySelector('input[name="pagesnumber"]');
+  let selectedPages = selectPages.value;
+  const selectHasRead = form.querySelector('input[name="hasread"]');
+  let selectedHasRead= selectHasRead.value;
+  const book4 = new Book(selectedAuthor, selectedTitle, selectedPages, selectedHasRead);
+  addBookToLibrary(book4);
+  const books = document.querySelectorAll('.book');
+  books.forEach(book => book.remove());
+
+  displayBookStore();
+});
+
+// on start-up: entry-point.
 loadInitialLibrary();
