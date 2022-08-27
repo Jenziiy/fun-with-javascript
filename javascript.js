@@ -33,6 +33,7 @@ function Book(title, author, numberOfPages, readBook) {
 function addBookToLibrary(book) {
   myLibrary.push(book);
   myLibraryShadow.push(book);
+  return myLibrary;
 }
 
 function removeBookFromLibrary(id) {
@@ -67,6 +68,7 @@ function loadInitialLibrary() {
   
   const book3 = new Book('De antwoorden op de Grote Vragen', 'Stephen Hawking', '264', false);
   addBookToLibrary(book3);
+
   displayBookStore();
 }
 
@@ -79,7 +81,9 @@ submit.addEventListener('click', () => {document.querySelector('#add-book').styl
 document.querySelector('.grid').classList.toggle('greyedout');}
 );
 // On submit we send the book details to the library.
-submit.addEventListener('click', () => {const form = document.forms[0];
+submit.addEventListener('click', addBook);
+
+function addBook() { const form = document.forms[0];
   const selectAuthor = form.querySelector('input[name="author"]');
   let selectedAuthor = selectAuthor.value;
   const selectTitle = form.querySelector('input[name="Title"]');
@@ -88,13 +92,11 @@ submit.addEventListener('click', () => {const form = document.forms[0];
   let selectedPages = selectPages.value;
   const selectHasRead = form.querySelector('input[name="hasread"]');
   let selectedHasRead= selectHasRead.value;
-  const book4 = new Book(selectedAuthor, selectedTitle, selectedPages, selectedHasRead);
+  book4 = new Book(selectedAuthor, selectedTitle, selectedPages, selectedHasRead);
   addBookToLibrary(book4);
   const books = document.querySelectorAll('.book');
   books.forEach(book => book.remove());
-
   displayBookStore();
-});
-
+}
 // on start-up: entry-point.
 loadInitialLibrary();
