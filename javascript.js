@@ -1,11 +1,19 @@
 let myLibrary = [];
 let myLibraryShadow = [];
 let books;
-
-let divBookStore = document.querySelector('.bookstore');
+const divBookStore = document.querySelector('.bookstore');
+const addBookButton = document.querySelector('.add-book');
 const submit = document.querySelector('#submit-button');
+
+// Click event "add book" triggers pop-up with form for user to input details. 
+addBookButton.addEventListener('click', () => {document.querySelector('#add-book').style.display='flex'; 
+document.querySelector('.grid').classList.add('greyedout')}
+);
+// Click event "submit" closes pop-up and returns to main library.
 submit.addEventListener('click', () => {document.querySelector('#add-book').style.display='none';
-document.querySelector('.grid').classList.toggle('greyedout');});
+document.querySelector('.grid').classList.toggle('greyedout');}
+);
+// On submit we send the book details to the library.
 submit.addEventListener('click', () => {const form = document.forms[0];
   const selectAuthor = form.querySelector('input[name="author"]');
   let selectedAuthor = selectAuthor.value;
@@ -22,16 +30,17 @@ submit.addEventListener('click', () => {const form = document.forms[0];
 
   displayBookStore();
 });
-const addBookButton = document.querySelector('.add-book');
-addBookButton.addEventListener('click', () => {document.querySelector('#add-book').style.display='flex'; 
-document.querySelector('.grid').classList.add('greyedout')});
 
-function getBooks() { return books = document.querySelectorAll('.book')};
+function getBooks() { 
+  return books = document.querySelectorAll('.book')
+};
 
-function idCreator() { if (myLibraryShadow == '') { return id = 0} else {return id = myLibraryShadow.length} };
+function generateBookID() {
+   if (myLibraryShadow == '') { return id = 0} else {return id = myLibraryShadow.length} 
+};
 
 function Book(title, author, numberOfPages, readBook) {
-  this.id = idCreator();
+  this.id = generateBookID();
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
@@ -71,8 +80,8 @@ function displayBookStore(){
     divBook.appendChild(para);
     divBook.appendChild(button);
     getBooks();
-    books.forEach(b => b.addEventListener('click', () => removeBookFromLibrary(b.id)));
-  })}
+    books.forEach(b => b.addEventListener('click', () => removeBookFromLibrary(b.id)));})
+}
 
 function loadInitialLibrary() {
   const book1 = new Book('De verenigde staten in de 20e eeuw', 'Maarten van Rossum', '509', true);
