@@ -108,16 +108,17 @@ loadInitialLibrary();
 
 //add prototype
 Book.prototype.readState = function() {
-  if (this.readBook == true) { this.readBook == false;}
+  if (this.readBook == true) { this.readBook = false;}
   else {
-    this.readBook == true;
+    this.readBook = true;
   }
   document.querySelector(`input[data='${this.id}']`).checked = this.readBook;
   console.log(this);
 }
 
+
 const inputCheckObj = document.querySelectorAll(`input[type=checkbox]`);
-() => inputCheckObj.forEach(input => input.addEventListener('change', (e) => { let checkboxid = e.target.getAttribute("data");
-for (let book of myLibrary) { if (this.id == checkboxid) { book.readState()} };
-const checkboxState = document.querySelector(`input[data="${checkboxid}"]`)
-if (checkboxState.checked == true) {checkboxState.checked = false} else if (checkboxState.checked = false) {checkboxState.checked = true} }));
+inputCheckObj.forEach(input => input.addEventListener('change', (e) => { e.target.getAttribute("data");
+for (let book of myLibrary) { if (this.id == e.target.getAttribute("data")) { book.readState()} };
+let checkboxState = document.querySelector(`input[data="${e.target.getAttribute("data")}"]`)
+if (checkboxState.checked == true) {checkboxState.checked = false} else if (checkboxState.checked = false) {checkboxState.checked = true} })); 
