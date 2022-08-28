@@ -94,8 +94,8 @@ footer {
   height: 150px;
   min-width: 200px;
   max-width: 350px;
-  grid-template-columns: 73% 27%;
-  grid-template-rows: 90% 10%;
+  grid-template-columns: 7.3fr 2.7fr;
+  grid-template-rows: 2fr 1fr 1fr;
   padding-left: 10px;
 }
 .book p {
@@ -251,4 +251,20 @@ fieldset {
   flex-grow: 1;
   border: rgb(238, 230, 230) solid;
   justify-content: space-around;
+}
+
+.book div {
+  display: flex;
+  flex-flow: wrap;
+  font-weight: 700;
+  column-gap: 15px;
+  margin-bottom: 100px;
+}
+.book #hasread {
+  display: flex;
+  height: 20px;
+}
+
+.book label:before {
+  content: 'has been read';
 }

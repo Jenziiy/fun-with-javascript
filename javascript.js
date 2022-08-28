@@ -5,7 +5,6 @@ const divBookStore = document.querySelector('.bookstore');
 const addBookButton = document.querySelector('.add-book');
 const submit = document.querySelector('#submit-button');
 
-
 function Book(title, author, numberOfPages, readBook) {
   this.id = generateBookID();
   this.title = title;
@@ -21,6 +20,7 @@ function Book(title, author, numberOfPages, readBook) {
     return `${title} by ${author}, ${numberOfPages} pages, ${readBook} `;
   }
 }
+
 function getBooks() { 
   return books = document.querySelectorAll('.remove')
 }
@@ -51,6 +51,18 @@ function displayBookStore(){
     para.appendChild(document.createTextNode(book.info()));
     divBook.appendChild(para);
     divBook.appendChild(button);
+    const checkbox = document.createElement('input'); checkbox.setAttribute('data',`${myLibraryShadow.indexOf(book)}`);
+    const divBox = document.createElement('div');
+checkbox.type = "checkbox";
+checkbox.form = "add-book";
+checkbox.name = "hasread";
+checkbox.checked = book.readBook;
+checkbox.id = "hasread";
+const label = document.createElement('label')
+label.htmlFor = "hasread";
+divBox.appendChild(checkbox);
+divBox.appendChild(label);
+divBook.appendChild(divBox);
     getBooks();
     books.forEach(b => b.addEventListener('click', () => removeBookFromLibrary(b.parentElement.id)));})
 }
@@ -62,7 +74,7 @@ function addBook() { const form = document.forms[0];
   const selectPages = form.querySelector('input[name="pagesnumber"]');
   let selectedPages = selectPages.value;
   const selectHasRead = form.querySelector('input[name="hasread"]');
-  let selectedHasRead= selectHasRead.value;
+  let selectedHasRead= selectHasRead.checked;
   book4 = new Book(selectedTitle, selectedAuthor, selectedPages, selectedHasRead);
   addBookToLibrary(book4);
   const books = document.querySelectorAll('.book');
@@ -93,3 +105,19 @@ submit.addEventListener('click', addBook);
 
 // on start-up: entry-point.
 loadInitialLibrary();
+
+//add prototype
+Book.prototype.readState = function() {
+  if (this.readBook == true) { this.readBook == false;}
+  else {
+    this.readBook == true;
+  }
+  document.querySelector(`input[data='${this.id}']`).checked = this.readBook;
+  console.log(this);
+}
+
+const inputCheckObj = document.querySelectorAll(`input[type=checkbox]`);
+() => inputCheckObj.forEach(input => input.addEventListener('change', (e) => { let checkboxid = e.target.getAttribute("data");
+for (let book of myLibrary) { if (this.id == checkboxid) { book.readState()} };
+const checkboxState = document.querySelector(`input[data="${checkboxid}"]`)
+if (checkboxState.checked == true) {checkboxState.checked = false} else if (checkboxState.checked = false) {checkboxState.checked = true} }));
