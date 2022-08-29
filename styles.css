@@ -91,15 +91,18 @@ footer {
   display: grid;
   border: solid rgb(215, 202, 205);
   box-shadow: 3px 3px 3px rgb(207, 195, 195);
-  height: 150px;
+  max-height: 150px;
   min-width: 200px;
   max-width: 350px;
-  grid-template-columns: 7.3fr 2.7fr;
-  grid-template-rows: 2fr 1fr 1fr;
-  padding-left: 10px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  row-gap: 4px;
+  padding: 0 0 4% 2.5%;
 }
 .book p {
+  display: flex;
   padding: 5px;
+  grid-column: 1/5;
 }
 
 button {
@@ -111,11 +114,13 @@ button {
   cursor: pointer;
 }
 button.remove {
-  width: 80px;
-  height: 40px;
-  margin-left: -15px;
-  align-self: flex-end;
+  justify-self: center;
+  align-items: center;
+  max-width: 80px;
+  max-height: 40px;
+  grid-area: 2/2/2/4;
   background-color: rgb(184, 142, 163);
+
 }
 button.remove:after {
   content: "Remove";
@@ -254,15 +259,14 @@ fieldset {
 }
 
 .book div {
+  grid-area: 2/1/2/2;
   display: flex;
-  flex-flow: wrap;
   font-weight: 700;
-  column-gap: 15px;
-  margin-bottom: 100px;
+  align-items: center;
+  column-gap: 10px;
 }
-.book #hasread {
-  display: flex;
-  height: 20px;
+#hasread {
+  height: 25px;
 }
 
 .book label:before {
