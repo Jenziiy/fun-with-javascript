@@ -277,13 +277,15 @@ fieldset {
 }
 
 @media screen and (max-width:1400px){
-  .bookstore{grid-template-columns: 1fr 1fr;
+  .bookstore{grid-template-columns: repeat(2,1fr);
   grid-auto-flow: row;}
 }
+
 @media screen and (max-width:960px){
-  .bookstore{grid-template-columns: repeat(1fr);
+  .bookstore{grid-template-columns: repeat(1,1fr);
     grid-auto-flow: row;
 }
+
 }
 @media screen and (max-width:600px){
   .bookstore{grid-template-columns: repeat(1fr);
