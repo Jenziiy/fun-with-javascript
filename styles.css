@@ -276,9 +276,9 @@ fieldset {
   content: 'has been read';
 }
 
-@media screen and (max-width:1455px){
-  .bookstore{grid-template-columns: auto;
-  grid-template-rows: repeat(auto,1fr);}
+@media screen and (max-width:1400px){
+  .bookstore{grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;}
 }
 @media screen and (max-width:960px){
   .bookstore{grid-template-columns: repeat(1fr);
