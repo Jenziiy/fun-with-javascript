@@ -6,19 +6,27 @@ const divBookStore = document.querySelector('.bookstore');
 const addBookButton = document.querySelector('.add-book');
 const submit = document.querySelector('#submit-button');
 
-function Book(title, author, numberOfPages, readBook) {
-  this.id = generateBookID();
-  this.title = title;
-  this.author = author;
-  this.numberOfPages = numberOfPages;
-  this.readBook = Boolean(readBook);
+let Book = class Book {
+  constructor(title, author, numberOfPages, readBook){
+    this.title = title,
+    this.author = author,
+    this.numberOfPages = numberOfPages,
+    this.readBook = Boolean(readBook) ? 'read' : 'unread';
+  }
+  hasRead() {
   if (readBook == true) {
     readBook = 'already read';
   } else {
     readBook = 'not read yet.';
   }
-  this.info = function() {
-    return `${title} by ${author}, ${numberOfPages} pages, ${readBook} `;
+  return this.readBook;
+}
+  deleteBook() {
+    this = {};
+  }
+
+  info = function() {
+    return `${this.title} by ${this.author}, ${this.numberOfPages} pages, ${this.readBook} `;
   }
 }
 
@@ -95,6 +103,7 @@ function removeBookFromLibrary(id) {
     if ( book.id == id )  {myLibrary.splice(myLibrary.indexOf(book), 1);
   document.querySelectorAll(`[data='${id}']`).forEach(book => book.remove());}
   }
+  
 }
 
 function setCheckbox() {
