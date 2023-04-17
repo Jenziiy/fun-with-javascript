@@ -22,7 +22,7 @@ let Book = class Book {
   return this.readBook;
 }
   deleteBook() {
-    this = {};
+    this.Book = {};
   }
 
   info = function() {
@@ -103,7 +103,7 @@ function removeBookFromLibrary(id) {
     if ( book.id == id )  {myLibrary.splice(myLibrary.indexOf(book), 1);
   document.querySelectorAll(`[data='${id}']`).forEach(book => book.remove());}
   }
-  
+
 }
 
 function setCheckbox() {
